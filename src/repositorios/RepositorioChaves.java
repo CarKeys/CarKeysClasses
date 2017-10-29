@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dados.Chave;
-import interfaces.IRepositorioChaves;
+import dados.Produto;
+import interfaces.IRepositorio;
 
-public class RepositorioChaves implements IRepositorioChaves {
+public class RepositorioChaves implements IRepositorio {
 
 	List<Chave> chaves;
 	
@@ -15,19 +16,22 @@ public class RepositorioChaves implements IRepositorioChaves {
 	}
 	
 	@Override
-	public void adicionar(Chave c) {
-		chaves.add(c);
+	public void adicionar(Produto c) {
+		chaves.add((Chave) c);
 	}
 
 	@Override
-	public void remover(Chave c) {
+	public void remover(Produto c) {
 		if(c!=null) {
 			chaves.remove(c);
 		}
 	}
 
 	@Override
-	public boolean existe(Chave c) {
+	public boolean existe(Produto c) {
+		if(c == null) {
+			return false;
+		}
 		return chaves.contains(c);
 	}
 
