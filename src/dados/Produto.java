@@ -3,22 +3,37 @@ package dados;
 public abstract class Produto {
 	private static int geradorId;
 	private int id;
-	private double valor;
+	private String modelo;
+	private double preco;
 	
-	public Produto() {
+	//	construtor para adicao de chave
+	public Produto(String modelo, double preco) {
 		geradorId++;
 		id = geradorId;
+		this.modelo = modelo;
+		this.preco = preco;
+	}
+	
+	//	construtor para adicao de carro
+	public Produto(String modelo) {
+		geradorId++;
+		id = geradorId;
+		this.modelo = modelo;
+	}
+	
+	public String getModelo() {
+		return modelo;
 	}
 	
 	public int getId() {
 		return this.id;
 	}
 	
-	public double getValor() {
-		return this.valor;
+	public double getPreco() {
+		return this.preco;
 	}
 	
-	public void setValor(double valor) {
-		this.valor = valor;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 }
